@@ -1,34 +1,95 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Setup Tailwind
+   npm install -D tailwindcss postcss autoprefixer
+   npx tailwindcss init -p
 
-First, run the development server:
+   update tailwind.config.js
+    content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    ],
+    theme: {
+        extend: {},
+    },
+    plugins: [],
+    }
+   
+   update styles\gloabl.css and add following line
+    @stailwind base;
+    @tailwind components;
+    @tailwind utilities;
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Setup hardhat
+   npm install hardhat
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   cd smart-contract
+   npx hardhat
+    > Create a basic sample project
+    select smart-contract folder
+    
+    npm install @openzeppelin/contracts
+    npm install dotenv
+    npm install @nomiclabs/hardhat-waffle
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+    update hardhat.config.js
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Setup Alchemy
+   https://www.alchemy.com/
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+   login and create new project called 
+    tinder-clone-blockchain
 
-## Learn More
+   cd smart-contract
+   create .env with your ALCHEMY API and RINKEBY private key
+     ALCHEMY_API_URL =
+     RINKEBY_PRIVATE_KEY = 
 
-To learn more about Next.js, take a look at the following resources:
+   npx hardhat run scripts/deploy.js --network rinkeby
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   TINDER CONTRACT ADDRESS:  0x40859ac356Da2304776b059E6cf6fbF4CA55F6ab
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Rinkeby test blockchain network
+   Get testing etherum token
+   https://faucets.chain.link/rinkeby
 
-## Deploy on Vercel
+## Next.js
+   npm install react-icon
+   npm install react-tinder-card
+   npm install @faker-js/faker
+   npm install react-moralis
+   npm install moralis
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Moralis setup
+  https://admin.moralis.io/login
+   create a new server
+## Web 3 library
+    npm install @web3auth/web3auth magic-sdk @magic-sdk/types walletconnect\utils @walletconnect\web3-provider
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Environment variable setup
+   create .env.local file with following variable
+      SANITY_PROJECT_ID = 
+      SANITY_TOKEN = 
+      MORALIS_SERVER_URL =
+      MORALIS_APP_ID = 
+      MORALIS_MASTER_KEY = 
+      ALCHEMY_API_URL = 
+      WALLET_PRIVATE_KEY = 
+
+## Sanity
+    cd studio 
+    npm install @sanity/client
+    sanity init
+    sanity start
+## smart-contract deployment
+    cd smart-contract
+    npx hardhat run scripts/deploy.js --network rinkeby
+
+    TINDER CONTRACT ADDRESS:  0x8bd5E9363c68c405105383e00c713D0b2eBC6B58
+
+    update Contract address at lib/constants.js
+
+    copy smart-contract/artifacts/contracts/TinderERC721.json to lib/TinderERC721.json folder
+
+
+## Reference
+    https://www.youtube.com/watch?v=4YjUaQKE6-I&t=1127s
