@@ -20,8 +20,6 @@
     @tailwind utilities;
 
 ## Setup hardhat
-   npm install hardhat
-
    cd smart-contract
    npx hardhat
     > Create a basic sample project
@@ -63,17 +61,19 @@
   https://admin.moralis.io/login
    create a new server
 ## Web 3 library
-    npm install @web3auth/web3auth magic-sdk @magic-sdk/types walletconnect\utils @walletconnect\web3-provider
+    npm install @web3auth/web3auth magic-sdk @magic-sdk/types walletconnect/utils @walletconnect/web3-provider
 
 ## Environment variable setup
    create .env.local file with following variable
       SANITY_PROJECT_ID = 
       SANITY_TOKEN = 
-      MORALIS_SERVER_URL =
-      MORALIS_APP_ID = 
+      NEXT_PUBLIC_MORALIS_SERVER_URL =
+      NEXT_PUBLIC_MORALIS_APP_ID = 
       MORALIS_MASTER_KEY = 
       ALCHEMY_API_URL = 
       WALLET_PRIVATE_KEY = 
+
+      Remark: NEXT_PUBLIC_ prefix is used by Next.js
 
 ## Sanity
     cd studio 
@@ -82,6 +82,7 @@
     sanity start
 ## smart-contract deployment
     cd smart-contract
+    npx hardhat
     npx hardhat run scripts/deploy.js --network rinkeby
 
     TINDER CONTRACT ADDRESS:  0x8bd5E9363c68c405105383e00c713D0b2eBC6B58

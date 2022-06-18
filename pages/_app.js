@@ -3,10 +3,15 @@ import { TinderProvider } from "../context/TinderContext";
 import { MoralisProvider } from "react-moralis";
 
 function MyApp({ Component, pageProps }) {
+
+  const serverUrl = process.env.NEXT_PUBLIC_MORALIS_SERVER_URL;
+  const appId = process.env.NEXT_PUBLIC_MORALIS_APP_ID;
+
   return (
     <MoralisProvider
-      serverUrl="https://kfzp1uyiagfp.usemoralis.com:2053/server"
-      appId='oXPoGA1WxtFghn4aLLQNgBvb5959iqHMNoq35htw'
+      // This should be in a .env file
+      serverUrl= {serverUrl}
+      appId={appId}
     >
       <TinderProvider>
         <Component {...pageProps} />
